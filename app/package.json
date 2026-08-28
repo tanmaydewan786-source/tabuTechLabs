@@ -13,7 +13,7 @@
     "check": "npm run lint && npm run test",
     "preview": "vite preview",
     "predeploy": "npm run check && npm run build",
-    "deploy": "node scripts/create-pages-fallback.mjs && gh-pages -d dist"
+    "deploy": "node scripts/create-pages-fallback.mjs && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "react": "^19.2.8",

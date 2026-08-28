@@ -3,8 +3,8 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/tabuTechLabs/' : '/',
+export default defineConfig({
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -16,4 +16,4 @@ export default defineConfig(({ mode }) => ({
     setupFiles: './src/test/setup.js',
     css: true,
   },
-}))
+})

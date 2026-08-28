@@ -4,22 +4,21 @@ A modular React website for **Tabutech labs**, an Indian technology company
 researching and developing products for meaningful societal and industrial
 challenges.
 
-The application recreates the original company website as a lightweight
-single-page React application. It preserves the visual identity, responsive
-layout, product pages, animations, accessible navigation, and research-stage
-product language.
+The application is a lightweight single-page React experience. It preserves
+the visual identity, responsive layout, accessible navigation, and
+research-stage product language.
 
-## Pages
+## Sections
 
-| Route | Description |
+| Navigation item | Description |
 | --- | --- |
-| `/` | Company homepage with Lab, Stories, Services, and Grow with us sections |
-| `/truthbubble-ai` | TruthBubble AI product and research page |
-| `/shivastras` | Shivastras wearable-technology research page |
-| `/research` | Research principles and focus areas |
+| What we do | Eight software, engineering, research, and quality capabilities |
+| Our Products | TruthBubble AI and Shivastras product lines |
+| About Us | Company vision, mission, and working principles |
+| Contact Us | Partnership and conversation link |
 
-Internal links use client-side navigation and support browser back and forward
-controls. Each page can also be opened directly by URL.
+Navigation switches the right-side content panel instantly without changing the
+URL or leaving the page.
 
 ## Technology
 
@@ -108,12 +107,11 @@ Keep the following product qualifications accurate:
 - Do not imply that products are launched, certified, patented, or formally
   partnered unless those claims have been approved.
 
-### Add a route
+### Add a section
 
-1. Create a page component in `src/pages/`.
-2. Add its path and renderer to the `routes` object in `src/App.jsx`.
-3. Add its document title in the same file.
-4. Add direct-route and navigation coverage to `src/App.test.jsx`.
+1. Add a panel component and navigation entry in `src/pages/HomePage.jsx`.
+2. Add the panel to the `panels` map in the same file.
+3. Add interaction coverage to `src/App.test.jsx`.
 
 ### Styling
 
@@ -129,9 +127,9 @@ does not rely on Tailwind utility classes.
 The tests verify:
 
 - Homepage and portal-section rendering
-- Direct loading of every public route
-- Page-specific document titles
-- Client-side navigation between pages
+- Rendering of all navigation sections
+- Switching content without changing the URL
+- The company document title
 - External contact-link behavior and safety attributes
 
 Tests run in a browser-like JSDOM environment. Add a regression test whenever
@@ -155,15 +153,15 @@ remain labeled placeholders until official profile URLs are available.
 
 ### GitHub Pages
 
-The project is configured for the repository URL
-`https://<username>.github.io/tabuTechLabs/`. To publish it, run:
+The project is configured for the custom domain `https://tabutechlabs.com/`.
+To publish it, run:
 
 ```bash
 npm run deploy
 ```
 
 This command runs linting and tests, creates a production build using the
-`/tabuTechLabs/` base path, generates a route fallback, and publishes `dist/`
+custom-domain root path, generates a route fallback, and publishes `dist/`
 to the `gh-pages` branch. In the GitHub repository settings, select
 **Settings → Pages → Deploy from a branch**, then choose the `gh-pages` branch
 and `/ (root)` folder.

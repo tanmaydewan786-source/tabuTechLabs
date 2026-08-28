@@ -1,4 +1,4 @@
-import { copyFile, stat } from 'node:fs/promises'
+import { copyFile, stat, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
 const outputDirectory = resolve('dist')
@@ -12,4 +12,5 @@ try {
 }
 
 await copyFile(indexFile, fallbackFile)
+await writeFile(resolve(outputDirectory, '.nojekyll'), '')
 console.log('Created dist/404.html for GitHub Pages route fallback.')
