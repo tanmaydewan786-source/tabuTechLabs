@@ -58,6 +58,7 @@ starts. The local address is printed in the terminal, normally
 | `npm run check` | Run linting and tests together |
 | `npm run build` | Create an optimized production build in `dist/` |
 | `npm run preview` | Preview the production build locally |
+| `npm run deploy` | Check, build, and publish `dist/` to GitHub Pages |
 
 For a release check, run:
 
@@ -151,6 +152,21 @@ as `/research` may return a server-level 404.
 
 The current contact actions link to LinkedIn. Instagram, Reddit, and Kickstarter
 remain labeled placeholders until official profile URLs are available.
+
+### GitHub Pages
+
+The project is configured for the repository URL
+`https://<username>.github.io/tabuTechLabs/`. To publish it, run:
+
+```bash
+npm run deploy
+```
+
+This command runs linting and tests, creates a production build using the
+`/tabuTechLabs/` base path, generates a route fallback, and publishes `dist/`
+to the `gh-pages` branch. In the GitHub repository settings, select
+**Settings → Pages → Deploy from a branch**, then choose the `gh-pages` branch
+and `/ (root)` folder.
 
 ## Accessibility
 

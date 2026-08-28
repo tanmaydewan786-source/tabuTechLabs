@@ -1,11 +1,12 @@
 import Arrow from './Arrow.jsx'
 import Brand from './Brand.jsx'
+import { routeHref } from '../routing.js'
 
 export function DetailNav({ backLabel = 'Back to Lab' }) {
   return (
     <header className="detail-nav">
       <Brand compact />
-      <a href="/" className="back-link">{backLabel} <span aria-hidden="true">←</span></a>
+      <a href={routeHref('/')} className="back-link">{backLabel} <span aria-hidden="true">←</span></a>
     </header>
   )
 }

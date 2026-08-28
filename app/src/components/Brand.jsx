@@ -1,6 +1,8 @@
+import { routeHref } from '../routing.js'
+
 export default function Brand({ compact = false }) {
   if (compact) {
-    return <a href="/" className="detail-brand">Tabutech labs</a>
+    return <a href={routeHref('/')} className="detail-brand">Tabutech labs</a>
   }
 
   return (

@@ -1,6 +1,7 @@
 import Arrow from '../components/Arrow.jsx'
 import Brand from '../components/Brand.jsx'
 import { linkedInUrl, portalCards } from '../data/siteContent.jsx'
+import { routeHref } from '../routing.js'
 
 const services = [
   'Software development',
@@ -23,12 +24,12 @@ function CardArt({ type }) {
 function LabLinks() {
   return (
     <div className="product-links">
-      <a href="/truthbubble-ai">
+      <a href={routeHref('/truthbubble-ai')}>
         <b>TruthBubble AI</b>
         <small>Trust in digital information</small>
         <Arrow />
       </a>
-      <a href="/shivastras">
+      <a href={routeHref('/shivastras')}>
         <b>Shivastras</b>
         <small>Mindful wearable technology</small>
         <Arrow />
@@ -45,7 +46,7 @@ function StoryLinks() {
         <p><b>Mission</b> Create scalable products that solve meaningful problems.</p>
       </div>
       <div className="story-actions">
-        <a href="/research">Research <Arrow /></a>
+        <a href={routeHref('/research')}>Research <Arrow /></a>
         <a href="#contact">Contact <Arrow /></a>
       </div>
       <div className="social-row" aria-label="Social channels">
