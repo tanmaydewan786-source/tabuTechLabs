@@ -11,7 +11,7 @@ describe('Tabutech labs routes', () => {
   it('renders the homepage and all portal sections', () => {
     renderAt('/')
 
-    expect(screen.getByRole('heading', { name: /what will matter/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /striving to build/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Lab' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Stories' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Services' })).toBeInTheDocument()
@@ -38,7 +38,7 @@ describe('Tabutech labs routes', () => {
 
     fireEvent.click(screen.getByRole('link', { name: /back to lab/i }))
     expect(window.location.pathname).toBe('/')
-    expect(screen.getByRole('heading', { name: /what will matter/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /striving to build/i })).toBeInTheDocument()
   })
 
   it('keeps external contact links safe and outside client routing', () => {

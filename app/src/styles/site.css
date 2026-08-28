@@ -1,2 +1,10 @@
 /* Shared production visual system, bundled by Vite. */
 @import "../../../TabuTech_Labs_Developer_Handover/app/globals.css";
+
+.home-intro footer > div span {
+  font-size: 16.1px;
+}
+
+.home-intro footer > a {
+  font-size: 12.65px;
+}

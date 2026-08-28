@@ -119,22 +119,20 @@ export default function HomePage() {
         </header>
 
         <div className="intro-copy">
-          <p className="eyebrow"><span /> Research · Build · Scale</p>
-          <h1>What will matter<br /><em>ten years from now?</em></h1>
+          <h1>Striving to build for<br /><em>the next 100+ years...</em></h1>
           <p className="intro-deck">
-            Tabutech labs researches, develops and commercialises technology
-            for meaningful societal and industrial challenges.
+            Tabutech Labs is an Indian technology research and engineering
+            company, building patent-pending products and delivering the same
+            capability to our partners.
           </p>
-          <a className="intro-button" href="#lab">Enter the Lab <Arrow /></a>
-        </div>
-
-        <div className="intro-art" aria-hidden="true">
-          <span className="orb orb-lime" />
-          <span className="orb orb-orange" />
-          <span className="capsule" />
-          <span className="art-line line-one" />
-          <span className="art-line line-two" />
-          <span className="art-curve" />
+          <a
+            className="intro-button"
+            href={linkedInUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Connect with us <Arrow />
+          </a>
         </div>
 
         <footer id="contact">
@@ -142,13 +140,10 @@ export default function HomePage() {
             <span>तकनीक से प्रगति</span>
             <small>Progress through technology</small>
           </div>
-          <a href={linkedInUrl} target="_blank" rel="noreferrer">
-            Connect with us <Arrow />
-          </a>
         </footer>
       </section>
 
-      <section className="portal-grid" aria-label="Explore Tabutech labs">
+      <section className="portal-grid" aria-label="Explore Tabutech Labs">
         {portalCards.map((card) => <PortalCard card={card} key={card.id} />)}
       </section>
     </main>
