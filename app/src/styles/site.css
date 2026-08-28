@@ -529,6 +529,10 @@ h1 em {
   .mobile-heading-copy > em {
     display: block;
   }
+
+  .mobile-heading-copy {
+    line-height: 1.14;
+  }
 }
 
 .home-intro,
