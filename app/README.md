@@ -74,17 +74,12 @@ app/
 ├── src/
 │   ├── components/         Shared presentation components
 │   │   ├── Arrow.jsx
-│   │   ├── Brand.jsx
-│   │   └── DetailLayout.jsx
-│   ├── data/
-│   │   └── siteContent.jsx Central page and card content
+│   │   └── Brand.jsx
 │   ├── pages/
-│   │   ├── HomePage.jsx
-│   │   ├── DetailPage.jsx
-│   │   └── ShivastrasPage.jsx
+│   │   └── HomePage.jsx
 │   ├── styles/             Site styles and compatibility layer
 │   ├── test/               Shared test setup
-│   ├── App.jsx             Routing and document titles
+│   ├── App.jsx             Application shell and document title
 │   ├── App.test.jsx        Route and interaction tests
 │   └── main.jsx            React entry point
 ├── index.html
@@ -96,9 +91,8 @@ app/
 
 ### Edit company or product content
 
-Most reusable copy and page data lives in
-[`src/data/siteContent.jsx`](src/data/siteContent.jsx). Page-specific layouts
-live in `src/pages/`.
+Page content and section configuration live in
+[`src/pages/HomePage.jsx`](src/pages/HomePage.jsx).
 
 Keep the following product qualifications accurate:
 

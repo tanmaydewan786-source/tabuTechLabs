@@ -55,8 +55,7 @@ describe('Tabutech Labs single-page experience', () => {
     fireEvent.click(screen.getByRole('button', { name: 'About us' }))
 
     expect(screen.getByRole('heading', { name: 'About us' })).toBeInTheDocument()
-    expect(screen.getByText(/most trusted technology companies/i)).toBeInTheDocument()
-    expect(screen.getByText(/long-term thinking/i)).toBeInTheDocument()
+    expect(screen.getByText(/technology research and software engineering/i)).toBeInTheDocument()
   })
 
   it('opens the contact panel with a safe external action', () => {

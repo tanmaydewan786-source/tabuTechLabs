@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Arrow from '../components/Arrow.jsx'
 import Brand from '../components/Brand.jsx'
-import { linkedInUrl } from '../data/siteContent.jsx'
+
+const linkedInUrl = 'https://www.linkedin.com/in/praveet-chandra-064418b5'
 
 const navigation = [
   { id: 'capabilities', label: 'What we do' },
@@ -17,7 +18,7 @@ const capabilities = [
   { name: 'SaaS product development', icon: 'cloud' },
   { name: 'Hardware integration', icon: 'chip' },
   { name: 'Market research', icon: 'chart' },
-  { name: 'AI & applied research', icon: 'spark' },
+  { name: 'AI & applied research', icon: 'brain' },
   { name: 'QA & test automation', icon: 'check' },
 ]
 
@@ -28,13 +29,13 @@ const iconPaths = {
   cloud: <><path d="M7.5 18h9a4 4 0 0 0 .4-8A5.5 5.5 0 0 0 6.3 8.5 4.8 4.8 0 0 0 7.5 18Z" /><path d="m10 13 2-2 2 2M12 11v5" /></>,
   chip: <><rect x="7" y="7" width="10" height="10" rx="2" /><path d="M10 10h4v4h-4zM9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M17 9h4M3 15h4M17 15h4" /></>,
   chart: <><path d="M5 20V10M12 20V4M19 20v-7M3 20h18" /></>,
-  spark: <><path d="M12 3c.5 4.5 2.5 6.5 7 7-4.5.5-6.5 2.5-7 7-.5-4.5-2.5-6.5-7-7 4.5-.5 6.5-2.5 7-7Z" /><path d="M19 16c.2 1.7 1 2.5 2.7 2.7-1.7.2-2.5 1-2.7 2.7-.2-1.7-1-2.5-2.7-2.7 1.7-.2 2.5-1 2.7-2.7Z" /></>,
+  brain: <><path d="M9.5 4.5A3 3 0 0 0 6.7 8 3.2 3.2 0 0 0 5 13.8 3 3 0 0 0 8.2 18 2.8 2.8 0 0 0 12 19V6.5a2.5 2.5 0 0 0-2.5-2Z" /><path d="M14.5 4.5A3 3 0 0 1 17.3 8a3.2 3.2 0 0 1 1.7 5.8 3 3 0 0 1-3.2 4.2A2.8 2.8 0 0 1 12 19V6.5a2.5 2.5 0 0 1 2.5-2ZM8 10h2M14 8v3h2M8 15h2M14 14h2" /></>,
   check: <><path d="m8 12 2.5 2.5L16 9" /><path d="M20 12a8 8 0 1 1-4.2-7" /><path d="m16 4 2 2 3-3" /></>,
 }
 
 function ServiceIcon({ name }) {
   return (
-    <span className="service-icon" aria-hidden="true">
+    <span className={`service-icon service-icon--${name}`} aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         {iconPaths[name]}
       </svg>
@@ -111,26 +112,18 @@ function ProductsPanel() {
 function AboutPanel() {
   return (
     <section className="panel-section" aria-labelledby="about-title">
-      <p className="panel-kicker">The company</p>
       <h2 id="about-title">About us</h2>
-      <p className="panel-statement">
-        We are building an India-rooted technology company designed to think
-        beyond product cycles and work on problems that will matter for decades.
+      <p className="panel-statement about-statement">
+        Tabutech Labs Pvt Ltd is a technology research and software engineering
+        company dedicated to building next-generation artificial intelligence
+        solutions, SaaS platforms, and digital applications. We specialize in
+        information processing, automated verification systems, and data-driven
+        platforms designed to solve real-world problems. Starting with our
+        flagship product, Truth Bubble AI, our lab focuses on enhancing digital
+        trust, decision-making, and productivity. Tabutech Labs is committed to
+        continuous innovation, turning cutting-edge technology into scalable,
+        proprietary products that empower users and enterprises.
       </p>
-      <div className="about-grid">
-        <article>
-          <span>Vision</span>
-          <p>Build one of India&apos;s most trusted technology companies.</p>
-        </article>
-        <article>
-          <span>Mission</span>
-          <p>Create scalable products that solve meaningful problems.</p>
-        </article>
-        <article>
-          <span>How we work</span>
-          <p>Long-term thinking, evidence first, and meaningful ownership.</p>
-        </article>
-      </div>
     </section>
   )
 }
@@ -138,12 +131,7 @@ function AboutPanel() {
 function ContactPanel() {
   return (
     <section className="panel-section contact-panel" aria-labelledby="contact-title">
-      <p className="panel-kicker">Start a conversation</p>
       <h2 id="contact-title">Contact us</h2>
-      <p className="panel-statement">
-        Talk to us about software, research, product development, partnerships,
-        or an ambitious problem worth solving together.
-      </p>
       <a className="panel-contact-button" href={linkedInUrl} target="_blank" rel="noreferrer">
         Connect on LinkedIn <Arrow />
       </a>
