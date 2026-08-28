@@ -3,14 +3,14 @@ import { describe, expect, it } from 'vitest'
 import App from './App.jsx'
 
 const capabilities = [
-  'Software Development',
-  'Web Development',
-  'Mobile App Development',
-  'SaaS Product Development',
-  'Hardware Integration',
-  'Market Research',
-  'AI & Applied Research',
-  'QA & Test Automation',
+  'Software development',
+  'Web development',
+  'Mobile app development',
+  'SaaS product development',
+  'Hardware integration',
+  'Market research',
+  'AI & applied research',
+  'QA & test automation',
 ]
 
 describe('Tabutech Labs single-page experience', () => {
@@ -29,7 +29,7 @@ describe('Tabutech Labs single-page experience', () => {
     render(<App />)
     const navigation = screen.getByRole('navigation', { name: 'Company sections' })
     const whatWeDo = within(navigation).getByRole('button', { name: 'What we do' })
-    const products = within(navigation).getByRole('button', { name: 'Our Products' })
+    const products = within(navigation).getByRole('button', { name: 'Our products' })
 
     expect(whatWeDo).toHaveAttribute('aria-pressed', 'true')
     expect(products).toHaveAttribute('aria-pressed', 'false')
@@ -43,7 +43,7 @@ describe('Tabutech Labs single-page experience', () => {
     render(<App />)
     const initialPath = window.location.pathname
 
-    fireEvent.click(screen.getByRole('button', { name: 'Our Products' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Our products' }))
 
     expect(screen.getByRole('heading', { name: 'TruthBubble AI' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Shivastras' })).toBeInTheDocument()
@@ -52,19 +52,19 @@ describe('Tabutech Labs single-page experience', () => {
 
   it('opens the about panel', () => {
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: 'About Us' }))
+    fireEvent.click(screen.getByRole('button', { name: 'About us' }))
 
-    expect(screen.getByRole('heading', { name: 'About Us' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'About us' })).toBeInTheDocument()
     expect(screen.getByText(/most trusted technology companies/i)).toBeInTheDocument()
     expect(screen.getByText(/long-term thinking/i)).toBeInTheDocument()
   })
 
   it('opens the contact panel with a safe external action', () => {
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: 'Contact Us' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Contact us' }))
     const contactLink = screen.getByRole('link', { name: /connect on linkedin/i })
 
-    expect(screen.getByRole('heading', { name: 'Contact Us' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Contact us' })).toBeInTheDocument()
     expect(contactLink).toHaveAttribute('target', '_blank')
     expect(contactLink).toHaveAttribute('rel', 'noreferrer')
     expect(contactLink).toHaveAttribute('href', expect.stringContaining('linkedin.com'))

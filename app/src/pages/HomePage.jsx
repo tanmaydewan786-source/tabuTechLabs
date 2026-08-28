@@ -5,20 +5,20 @@ import { linkedInUrl } from '../data/siteContent.jsx'
 
 const navigation = [
   { id: 'capabilities', label: 'What we do' },
-  { id: 'products', label: 'Our Products' },
-  { id: 'about', label: 'About Us' },
-  { id: 'contact', label: 'Contact Us' },
+  { id: 'products', label: 'Our products' },
+  { id: 'about', label: 'About us' },
+  { id: 'contact', label: 'Contact us' },
 ]
 
 const capabilities = [
-  { name: 'Software Development', icon: 'code' },
-  { name: 'Web Development', icon: 'web' },
-  { name: 'Mobile App Development', icon: 'mobile' },
-  { name: 'SaaS Product Development', icon: 'cloud' },
-  { name: 'Hardware Integration', icon: 'chip' },
-  { name: 'Market Research', icon: 'chart' },
-  { name: 'AI & Applied Research', icon: 'spark' },
-  { name: 'QA & Test Automation', icon: 'check' },
+  { name: 'Software development', icon: 'code' },
+  { name: 'Web development', icon: 'web' },
+  { name: 'Mobile app development', icon: 'mobile' },
+  { name: 'SaaS product development', icon: 'cloud' },
+  { name: 'Hardware integration', icon: 'chip' },
+  { name: 'Market research', icon: 'chart' },
+  { name: 'AI & applied research', icon: 'spark' },
+  { name: 'QA & test automation', icon: 'check' },
 ]
 
 const iconPaths = {
@@ -61,7 +61,7 @@ function CapabilitiesPanel() {
 function ProductsPanel() {
   return (
     <section className="panel-section" aria-labelledby="products-title">
-      <h2 id="products-title">Our Products</h2>
+      <h2 id="products-title">Our products</h2>
       <div className="product-showcase">
         <article className="product-card truth-product">
           <div>
@@ -84,7 +84,7 @@ function AboutPanel() {
   return (
     <section className="panel-section" aria-labelledby="about-title">
       <p className="panel-kicker">The company</p>
-      <h2 id="about-title">About Us</h2>
+      <h2 id="about-title">About us</h2>
       <p className="panel-statement">
         We are building an India-rooted technology company designed to think
         beyond product cycles and work on problems that will matter for decades.
@@ -111,7 +111,7 @@ function ContactPanel() {
   return (
     <section className="panel-section contact-panel" aria-labelledby="contact-title">
       <p className="panel-kicker">Start a conversation</p>
-      <h2 id="contact-title">Contact Us</h2>
+      <h2 id="contact-title">Contact us</h2>
       <p className="panel-statement">
         Talk to us about software, research, product development, partnerships,
         or an ambitious problem worth solving together.
