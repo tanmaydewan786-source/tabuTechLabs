@@ -140,13 +140,12 @@ export default function HomePage() {
       <section className="home-intro">
         <header>
           <Brand />
-          <span className="company-label">Indian technology company · 2026</span>
         </header>
 
         <div className="intro-copy">
-          <h1>Striving to build for<br /><em>the next 100+ years...</em></h1>
+          <h1>Striving to build<br /><em>the next 100+ years...</em></h1>
           <p className="intro-deck">
-            Tabutech Labs is an Indian technology research and engineering
+            Tabutech Labs is a technology research and engineering
             company, building patent-pending products and delivering the same
             capability to our partners.
           </p>

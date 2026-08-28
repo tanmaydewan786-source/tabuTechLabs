@@ -384,6 +384,10 @@ h1 {
   letter-spacing: -0.045em;
 }
 
+.home-intro .intro-copy > h1 {
+  font-size: clamp(52.2px, 4.5vw, 81px);
+}
+
 h1 em {
   color: #aebbc2;
   font-weight: 700;
@@ -503,4 +507,30 @@ h1 em {
 .panel-contact-button:hover {
   color: var(--deep-blue);
   background: transparent;
+}
+
+@media (max-width: 660px) {
+  .home-intro .intro-copy > h1 {
+    font-size: 46.8px;
+  }
+}
+
+.home-intro,
+.home-intro .brand,
+.home-intro .brand b,
+.home-intro h1,
+.home-intro h1 em,
+.home-intro .intro-deck,
+.home-intro .company-label,
+.home-intro .intro-button,
+.home-intro footer > div span,
+.home-intro footer small {
+  color: #ffffff;
+}
+
+.home-intro .company-label,
+.home-intro footer small,
+.home-intro .intro-deck,
+.home-intro h1 em {
+  opacity: 1;
 }
