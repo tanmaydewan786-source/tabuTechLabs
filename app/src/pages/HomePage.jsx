@@ -44,19 +44,19 @@ function ServiceIcon({ name }) {
 }
 
 const contactChannels = [
-  { id: 'linkedin', label: 'LinkedIn', group: 'social', url: linkedInUrl },
-  { id: 'facebook', label: 'Facebook', group: 'social', url: 'https://www.facebook.com/profile.php?id=61593670460335' },
-  { id: 'instagram', label: 'Instagram', group: 'social', url: 'https://www.instagram.com/tabutechlabs/' },
-  { id: 'reddit', label: 'Reddit', group: 'social', url: 'https://www.reddit.com/user/Tabutechlabs/' },
-  { id: 'sms', label: 'SMS', group: 'instant' },
-  { id: 'email', label: 'Email', group: 'instant', url: 'mailto:tabutechlabs@gmail.com', external: false },
-  { id: 'call', label: 'Call', group: 'instant' },
-  { id: 'whatsapp', label: 'WhatsApp', group: 'instant' },
+  { id: 'linkedin', label: 'LinkedIn', group: 'social', note: 'Visit our company profile', url: linkedInUrl },
+  { id: 'facebook', label: 'Facebook', group: 'social', note: 'Visit our profile', url: 'https://www.facebook.com/profile.php?id=61593670460335' },
+  { id: 'instagram', label: 'Instagram', group: 'social', note: 'Visit our profile', url: 'https://www.instagram.com/tabutechlabs/' },
+  { id: 'reddit', label: 'Reddit', group: 'social', note: 'Join our community', url: 'https://www.reddit.com/user/Tabutechlabs/' },
+  { id: 'sms', label: 'SMS', group: 'instant', note: 'Send a message', url: 'sms:+919971861492', external: false },
+  { id: 'email', label: 'Email', group: 'instant', note: 'Write to our team', url: 'mailto:tabutechlabs@gmail.com', external: false },
+  { id: 'call', label: 'Call', group: 'instant', note: 'Call our team', url: 'tel:+919971861492', external: false },
+  { id: 'whatsapp', label: 'WhatsApp', group: 'instant', note: 'Start a chat', url: 'https://wa.me/919971861492' },
 ]
 
 const contactGroups = [
-  { id: 'social', title: 'Social media' },
   { id: 'instant', title: 'Instant connection' },
+  { id: 'social', title: 'Social media' },
 ]
 
 const contactIconPaths = {
@@ -169,8 +169,7 @@ function ContactPanel() {
       <h2 id="contact-title">Contact us</h2>
       <div className="contact-groups">
         {contactGroups.map((group) => (
-          <section className="contact-group" aria-labelledby={`${group.id}-title`} key={group.id}>
-            <h3 id={`${group.id}-title`}>{group.title}</h3>
+          <section className={`contact-group contact-group--${group.id}`} aria-label={group.title} key={group.id}>
             <div className="contact-grid">
               {contactChannels.filter((channel) => channel.group === group.id).map((channel) => channel.url ? (
                 <a
@@ -183,6 +182,7 @@ function ContactPanel() {
                 >
                   <ContactIcon type={channel.id} />
                   <span>{channel.label}</span>
+                  <small>{channel.note}</small>
                   <Arrow />
                 </a>
               ) : (
