@@ -43,6 +43,34 @@ function ServiceIcon({ name }) {
   )
 }
 
+const contactChannels = [
+  { id: 'linkedin', label: 'LinkedIn', url: linkedInUrl },
+  { id: 'sms', label: 'SMS' },
+  { id: 'facebook', label: 'Facebook' },
+  { id: 'email', label: 'Email' },
+  { id: 'call', label: 'Call' },
+  { id: 'whatsapp', label: 'WhatsApp' },
+  { id: 'instagram', label: 'Instagram' },
+]
+
+const contactIconPaths = {
+  linkedin: <><rect x="4" y="4" width="16" height="16" rx="3" /><path d="M8 10v6M8 8v.1M12 16v-3.5a2.5 2.5 0 0 1 5 0V16M12 10v6" /></>,
+  sms: <><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" /><path d="M7 11h.1M12 11h.1M17 11h.1" /></>,
+  facebook: <><circle cx="12" cy="12" r="9" /><path d="M14.5 7H13a2 2 0 0 0-2 2v8M8.5 11.5h6" /></>,
+  email: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></>,
+  call: <path d="M8.2 3.8 6 4.8a2 2 0 0 0-1.1 2.3c1.4 6 6 10.6 12 12a2 2 0 0 0 2.3-1.1l1-2.2-4.3-2-1.2 1.7a13 13 0 0 1-6.2-6.2l1.7-1.2-2-4.3Z" />,
+  whatsapp: <><path d="M20 11.7A8 8 0 0 1 8.1 18.6L4 20l1.4-4.1A8 8 0 1 1 20 11.7Z" /><path d="M9 8.5c.5 3 2 4.5 5 5l1-1.3M8.7 8l.8-.4" /></>,
+  instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.1" /></>,
+}
+
+function ContactIcon({ type }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {contactIconPaths[type]}
+    </svg>
+  )
+}
+
 function CapabilitiesPanel() {
   return (
     <section className="panel-section" aria-labelledby="capabilities-title">
@@ -132,10 +160,34 @@ function ContactPanel() {
   return (
     <section className="panel-section contact-panel" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact us</h2>
-      <a className="panel-contact-button" href={linkedInUrl} target="_blank" rel="noreferrer">
-        Connect on LinkedIn <Arrow />
-      </a>
-      <p className="contact-note">Partnerships · Product engineering · Research</p>
+      <div className="contact-grid" aria-label="Contact channels">
+        {contactChannels.map((channel) => channel.url ? (
+          <a
+            className="contact-card is-active"
+            href={channel.url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Connect on ${channel.label}`}
+            key={channel.id}
+          >
+            <ContactIcon type={channel.id} />
+            <span>{channel.label}</span>
+            <Arrow />
+          </a>
+        ) : (
+          <button
+            className="contact-card is-pending"
+            type="button"
+            disabled
+            title={`${channel.label} details will be added soon`}
+            key={channel.id}
+          >
+            <ContactIcon type={channel.id} />
+            <span>{channel.label}</span>
+            <small>Add details</small>
+          </button>
+        ))}
+      </div>
     </section>
   )
 }

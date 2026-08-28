@@ -286,25 +286,66 @@
   letter-spacing: 0;
 }
 
-.panel-contact-button {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 70px;
-  padding: 17px 21px;
-  color: white;
-  background: var(--ink);
-  font-size: 12px;
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 48px;
 }
 
-.contact-note {
-  margin: auto 0 0;
-  padding-top: 25px;
-  border-top: 1px solid rgba(7, 23, 19, 0.18);
-  color: #69756f;
+.contact-card {
+  min-height: 126px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  color: var(--deep-blue);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(39, 50, 58, 0.13);
+  border-radius: 18px;
+  text-align: left;
+  transition: transform 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.contact-card svg {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-card > span {
+  font-size: 13px;
+}
+
+.contact-card .arrow {
+  font-size: 18px;
+}
+
+.contact-card small {
+  grid-column: 2 / 4;
+  color: #7c878d;
   font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+}
+
+.contact-card.is-active {
+  color: #f6f1e9;
+  background: var(--deep-blue);
+}
+
+.contact-card.is-active:hover {
+  transform: translateY(-3px);
+  background: #334b5a;
+}
+
+.contact-card.is-active:focus-visible {
+  outline: 3px solid var(--slate-blue);
+  outline-offset: 3px;
+}
+
+.contact-card.is-pending {
+  font-family: "Noto Sans", Arial, sans-serif;
+  cursor: default;
+  opacity: 0.68;
 }
 
 @media (max-width: 1000px) {
@@ -359,6 +400,8 @@
   .product-image { height: 190px; }
   .product-card-copy { min-height: 155px; }
   .product-card h3 { font-size: 18px; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .contact-card { min-height: 108px; padding: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -478,7 +521,6 @@ h1 em {
 }
 
 .panel-kicker,
-.contact-note,
 .capability-list span {
   letter-spacing: 0.04em;
   text-transform: none;
@@ -494,8 +536,7 @@ h1 em {
 }
 
 .capability-list,
-.capability-list article,
-.contact-note {
+.capability-list article {
   border-color: rgba(39, 50, 58, 0.14);
 }
 
@@ -529,18 +570,6 @@ h1 em {
 .product-card p {
   font-family: "Noto Sans", Arial, sans-serif;
   font-weight: 400;
-}
-
-.panel-contact-button {
-  color: #f6f1e9;
-  background: var(--deep-blue);
-  border: 1px solid var(--deep-blue);
-  transition: color 180ms ease, background 180ms ease;
-}
-
-.panel-contact-button:hover {
-  color: var(--deep-blue);
-  background: transparent;
 }
 
 @media (max-width: 660px) {
