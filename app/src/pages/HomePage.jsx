@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Arrow from '../components/Arrow.jsx'
 import Brand from '../components/Brand.jsx'
 
-const linkedInUrl = 'https://www.linkedin.com/in/praveet-chandra-064418b5'
+const linkedInUrl = 'https://www.linkedin.com/company/tabutechlabs/'
 
 const navigation = [
   { id: 'capabilities', label: 'What we do' },
@@ -44,13 +44,19 @@ function ServiceIcon({ name }) {
 }
 
 const contactChannels = [
-  { id: 'linkedin', label: 'LinkedIn', url: linkedInUrl },
-  { id: 'sms', label: 'SMS' },
-  { id: 'facebook', label: 'Facebook' },
-  { id: 'email', label: 'Email' },
-  { id: 'call', label: 'Call' },
-  { id: 'whatsapp', label: 'WhatsApp' },
-  { id: 'instagram', label: 'Instagram' },
+  { id: 'linkedin', label: 'LinkedIn', group: 'social', url: linkedInUrl },
+  { id: 'facebook', label: 'Facebook', group: 'social', url: 'https://www.facebook.com/profile.php?id=61593670460335' },
+  { id: 'instagram', label: 'Instagram', group: 'social', url: 'https://www.instagram.com/tabutechlabs/' },
+  { id: 'reddit', label: 'Reddit', group: 'social', url: 'https://www.reddit.com/user/Tabutechlabs/' },
+  { id: 'sms', label: 'SMS', group: 'instant' },
+  { id: 'email', label: 'Email', group: 'instant', url: 'mailto:tabutechlabs@gmail.com', external: false },
+  { id: 'call', label: 'Call', group: 'instant' },
+  { id: 'whatsapp', label: 'WhatsApp', group: 'instant' },
+]
+
+const contactGroups = [
+  { id: 'social', title: 'Social media' },
+  { id: 'instant', title: 'Instant connection' },
 ]
 
 const contactIconPaths = {
@@ -61,6 +67,7 @@ const contactIconPaths = {
   call: <path d="M8.2 3.8 6 4.8a2 2 0 0 0-1.1 2.3c1.4 6 6 10.6 12 12a2 2 0 0 0 2.3-1.1l1-2.2-4.3-2-1.2 1.7a13 13 0 0 1-6.2-6.2l1.7-1.2-2-4.3Z" />,
   whatsapp: <><path d="M20 11.7A8 8 0 0 1 8.1 18.6L4 20l1.4-4.1A8 8 0 1 1 20 11.7Z" /><path d="M9 8.5c.5 3 2 4.5 5 5l1-1.3M8.7 8l.8-.4" /></>,
   instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.1" /></>,
+  reddit: <><circle cx="12" cy="13" r="8" /><path d="M8 13.5c1.8 1.5 6.2 1.5 8 0M9 11h.1M15 11h.1M12 5l1-3 3 1M16 3l2 2" /></>,
 }
 
 function ContactIcon({ type }) {
@@ -160,32 +167,39 @@ function ContactPanel() {
   return (
     <section className="panel-section contact-panel" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact us</h2>
-      <div className="contact-grid" aria-label="Contact channels">
-        {contactChannels.map((channel) => channel.url ? (
-          <a
-            className="contact-card is-active"
-            href={channel.url}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`Connect on ${channel.label}`}
-            key={channel.id}
-          >
-            <ContactIcon type={channel.id} />
-            <span>{channel.label}</span>
-            <Arrow />
-          </a>
-        ) : (
-          <button
-            className="contact-card is-pending"
-            type="button"
-            disabled
-            title={`${channel.label} details will be added soon`}
-            key={channel.id}
-          >
-            <ContactIcon type={channel.id} />
-            <span>{channel.label}</span>
-            <small>Add details</small>
-          </button>
+      <div className="contact-groups">
+        {contactGroups.map((group) => (
+          <section className="contact-group" aria-labelledby={`${group.id}-title`} key={group.id}>
+            <h3 id={`${group.id}-title`}>{group.title}</h3>
+            <div className="contact-grid">
+              {contactChannels.filter((channel) => channel.group === group.id).map((channel) => channel.url ? (
+                <a
+                  className="contact-card is-active"
+                  href={channel.url}
+                  target={channel.external === false ? undefined : '_blank'}
+                  rel={channel.external === false ? undefined : 'noreferrer'}
+                  aria-label={`Connect on ${channel.label}`}
+                  key={channel.id}
+                >
+                  <ContactIcon type={channel.id} />
+                  <span>{channel.label}</span>
+                  <Arrow />
+                </a>
+              ) : (
+                <button
+                  className="contact-card is-pending"
+                  type="button"
+                  disabled
+                  title={`${channel.label} details will be added soon`}
+                  key={channel.id}
+                >
+                  <ContactIcon type={channel.id} />
+                  <span>{channel.label}</span>
+                  <small>Add details</small>
+                </button>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
     </section>

@@ -286,31 +286,51 @@
   letter-spacing: 0;
 }
 
-.contact-grid {
+.contact-groups {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
   margin-top: 48px;
 }
 
-.contact-card {
-  min-height: 126px;
-  padding: 18px;
+.contact-group {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(39, 50, 58, 0.13);
+  border-radius: 22px;
+}
+
+.contact-group > h3 {
+  margin: 0 0 16px;
+  color: var(--deep-blue);
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+.contact-grid {
   display: grid;
-  grid-template-columns: 34px 1fr auto;
+  gap: 8px;
+}
+
+.contact-card {
+  min-height: 58px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--deep-blue);
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(39, 50, 58, 0.13);
-  border-radius: 18px;
+  border-radius: 13px;
   text-align: left;
   transition: transform 180ms ease, color 180ms ease, background 180ms ease;
 }
 
 .contact-card svg {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
 }
 
 .contact-card > span {
@@ -322,19 +342,18 @@
 }
 
 .contact-card small {
-  grid-column: 2 / 4;
   color: #7c878d;
-  font-size: 9px;
+  font-size: 8px;
 }
 
 .contact-card.is-active {
-  color: #f6f1e9;
-  background: var(--deep-blue);
+  color: var(--deep-blue);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .contact-card.is-active:hover {
   transform: translateY(-3px);
-  background: #334b5a;
+  background: rgba(96, 123, 141, 0.12);
 }
 
 .contact-card.is-active:focus-visible {
@@ -400,8 +419,11 @@
   .product-image { height: 190px; }
   .product-card-copy { min-height: 155px; }
   .product-card h3 { font-size: 18px; }
+  .contact-groups { grid-template-columns: 1fr; gap: 12px; }
+  .contact-group { padding: 16px; }
   .contact-grid { grid-template-columns: 1fr 1fr; }
-  .contact-card { min-height: 108px; padding: 15px; }
+  .contact-card { min-height: 56px; padding: 10px; }
+  .contact-card small { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
