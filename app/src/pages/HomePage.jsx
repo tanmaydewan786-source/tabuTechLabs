@@ -63,18 +63,46 @@ function ProductsPanel() {
     <section className="panel-section" aria-labelledby="products-title">
       <h2 id="products-title">Our products</h2>
       <div className="product-showcase">
-        <article className="product-card truth-product">
-          <div>
-            <h3>TruthBubble AI</h3>
-            <p>An AI-assisted verification layer for claims, sources, and context.</p>
+        <a
+          className="product-card truth-product"
+          href="https://truthbubbleai.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Visit the TruthBubble AI website"
+        >
+          <img
+            className="product-image"
+            src="/images/products/truthbubble-ai.webp"
+            alt="TruthBubble AI verification experience shown on two mobile phones"
+          />
+          <div className="product-card-copy">
+            <div>
+              <h3>TruthBubble AI</h3>
+              <p>An AI-assisted verification layer for claims, sources, and context.</p>
+            </div>
+            <Arrow />
           </div>
-        </article>
-        <article className="product-card shivastras-product">
-          <div>
-            <h3>Shivastras</h3>
-            <p>A screen-free wearable concept for meditation and conscious breathing.</p>
+        </a>
+        <a
+          className="product-card shivastras-product"
+          href="https://shivastras.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Visit the Shivastras website"
+        >
+          <img
+            className="product-image"
+            src="/images/products/shivastras.webp"
+            alt="Shivastras wearable ring with a blue gemstone and illuminated internal electronics"
+          />
+          <div className="product-card-copy">
+            <div>
+              <h3>Shivastras</h3>
+              <p>A screen-free wearable concept for meditation and conscious breathing.</p>
+            </div>
+            <Arrow />
           </div>
-        </article>
+        </a>
       </div>
     </section>
   )
