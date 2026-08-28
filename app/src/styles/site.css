@@ -420,10 +420,12 @@ h1 em {
 
 .panel-navigation {
   border-color: rgba(39, 50, 58, 0.13);
+  justify-content: flex-start;
 }
 
 .panel-navigation button {
   color: #68767f;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -533,4 +535,18 @@ h1 em {
 .home-intro .intro-deck,
 .home-intro h1 em {
   opacity: 1;
+}
+
+.home-intro footer > div span {
+  font-size: 20px;
+}
+
+.home-intro footer small {
+  font-size: 9px;
+}
+
+@media (max-width: 660px) {
+  .panel-navigation button {
+    font-size: 11px;
+  }
 }
