@@ -143,7 +143,16 @@ export default function HomePage() {
         </header>
 
         <div className="intro-copy">
-          <h1>Striving to build<br /><em>the next 100+ years...</em></h1>
+          <h1 className="hero-heading">
+            <span className="desktop-heading-copy">
+              Striving to build<br /><em>the next 100+ years...</em>
+            </span>
+            <span className="mobile-heading-copy">
+              <span>Striving to</span>
+              <span>build the</span>
+              <em>next 100+ years...</em>
+            </span>
+          </h1>
           <p className="intro-deck">
             Tabutech Labs is a technology research and engineering
             company, building patent-pending products and delivering the same

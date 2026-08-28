@@ -388,6 +388,10 @@ h1 {
   font-size: clamp(52.2px, 4.5vw, 81px);
 }
 
+.mobile-heading-copy {
+  display: none;
+}
+
 h1 em {
   color: #aebbc2;
   font-weight: 700;
@@ -513,7 +517,17 @@ h1 em {
 
 @media (max-width: 660px) {
   .home-intro .intro-copy > h1 {
-    font-size: 46.8px;
+    font-size: clamp(36px, 10.5vw, 42px);
+  }
+
+  .desktop-heading-copy {
+    display: none;
+  }
+
+  .mobile-heading-copy,
+  .mobile-heading-copy > span,
+  .mobile-heading-copy > em {
+    display: block;
   }
 }
 
